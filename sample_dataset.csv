@@ -1,0 +1,4 @@
+id,input,actual_output,expected_output,variant
+1,capital of France?,Paris,Paris,prompt_v1
+2,capital of France?,"The capital city is Paris, France.",Paris,prompt_v2
+3,capital of Japan?,Tokyo,Tokyo,prompt_v1

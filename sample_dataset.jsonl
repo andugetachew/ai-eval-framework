@@ -1,0 +1,2 @@
+{"id": "1", "input": "capital of France?", "actual_output": "Paris", "expected_output": "Paris", "variant": "prompt_v1"}
+{"id": "2", "input": "capital of France?", "actual_output": "The capital city is Paris, France.", "expected_output": "Paris", "variant": "prompt_v2"}

@@ -92,3 +92,42 @@ async def test_item_without_variant_defaults_correctly(client):
     compare_resp = await client.get(f"/eval-runs/{run_id}/compare")
     summary = compare_resp.json()["summary"]
     assert summary[0]["variant"] == "default"
+@pytest.mark.asyncio
+async def test_upload_csv(client):
+    csv_content = (
+        "id,input,actual_output,expected_output,variant\n"
+        "1,capital of France?,Paris,Paris,prompt_v1\n"
+        "2,capital of France?,London,Paris,prompt_v2\n"
+    )
+    files = {"file": ("test.csv", csv_content, "text/csv")}
+    data = {"name": "csv test", "scorers": "exact_match"}
+
+    resp = await client.post("/eval-runs/upload", data=data, files=files)
+    assert resp.status_code == 200
+    body = resp.json()
+    assert len(body["results"]) == 2
+    scores = {r["item_id"]: r["score"] for r in body["results"]}
+    assert scores["1"] == 1.0
+    assert scores["2"] == 0.0
+
+
+@pytest.mark.asyncio
+async def test_upload_jsonl(client):
+    jsonl_content = (
+        '{"id": "1", "input": "q", "actual_output": "Paris", "expected_output": "Paris"}\n'
+    )
+    files = {"file": ("test.jsonl", jsonl_content, "application/jsonl")}
+    data = {"name": "jsonl test", "scorers": "exact_match"}
+
+    resp = await client.post("/eval-runs/upload", data=data, files=files)
+    assert resp.status_code == 200
+    assert resp.json()["results"][0]["score"] == 1.0
+
+
+@pytest.mark.asyncio
+async def test_upload_rejects_unsupported_file_type(client):
+    files = {"file": ("test.txt", "not a valid format", "text/plain")}
+    data = {"name": "bad file test", "scorers": "exact_match"}
+
+    resp = await client.post("/eval-runs/upload", data=data, files=files)
+    assert resp.status_code == 400
