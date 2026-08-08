@@ -190,3 +190,41 @@ def _row_to_item(row: dict) -> EvalItem:
         context=context_list,
         variant=row.get("variant") or None,
     )
+
+from celery.result import AsyncResult
+
+from app.core.celery_app import celery_app
+from app.core.tasks import run_eval_batch
+from app.api.schemas import BatchEvalRunRequest, BatchTaskAccepted, BatchTaskStatus
+
+
+@router.post("/batch", response_model=BatchTaskAccepted, status_code=202)
+async def create_eval_run_batch(payload: BatchEvalRunRequest):
+    # No item-count cap here — that's the whole point of the async path.
+    # LLM-scorer cost guardrail still applies, just checked before queuing.
+    llm_scorer_used = any(name in LLM_SCORER_NAMES for name in payload.scorers)
+    if llm_scorer_used and len(payload.items) > 500:
+        raise HTTPException(
+            status_code=400,
+            detail="Even async batches are capped at 500 items when using LLM-based scorers",
+        )
+
+    items_data = [item.model_dump() for item in payload.items]
+    task = run_eval_batch.delay(payload.name, payload.scorers, items_data)
+    return BatchTaskAccepted(task_id=task.id)
+
+
+@router.get("/batch/{task_id}/status", response_model=BatchTaskStatus)
+async def get_batch_status(task_id: str):
+    result = AsyncResult(task_id, app=celery_app)
+
+    if result.state == "PENDING":
+        return BatchTaskStatus(task_id=task_id, state="PENDING")
+    if result.state == "STARTED":
+        return BatchTaskStatus(task_id=task_id, state="STARTED")
+    if result.state == "SUCCESS":
+        return BatchTaskStatus(task_id=task_id, state="SUCCESS", run_id=result.result)
+    if result.state == "FAILURE":
+        return BatchTaskStatus(task_id=task_id, state="FAILURE", error=str(result.info))
+
+    return BatchTaskStatus(task_id=task_id, state=result.state)

@@ -59,3 +59,20 @@ class CompareOut(BaseModel):
     run_id: str
     run_name: str
     summary: list[VariantSummary]
+
+class BatchEvalRunRequest(BaseModel):
+    name: str
+    scorers: list[str]
+    items: list[EvalItemIn]
+
+
+class BatchTaskAccepted(BaseModel):
+    task_id: str
+    status: str = "queued"
+
+
+class BatchTaskStatus(BaseModel):
+    task_id: str
+    state: str  # PENDING, STARTED, SUCCESS, FAILURE
+    run_id: str | None = None
+    error: str | None = None

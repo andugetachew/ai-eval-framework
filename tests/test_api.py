@@ -1,6 +1,6 @@
 import pytest
 
-
+from unittest.mock import MagicMock, patch
 @pytest.mark.asyncio
 async def test_create_and_list_eval_run(client):
     payload = {
@@ -205,3 +205,80 @@ async def test_scorer_failure_surfaces_as_result_not_dropped(client):
     assert len(results) == 1
     assert results[0]["raw"] if "raw" in results[0] else True  # raw not in schema, check reasoning instead
     assert "error" in results[0]["reasoning"].lower() or "requires" in results[0]["reasoning"].lower()
+
+
+
+
+@pytest.mark.asyncio
+async def test_batch_endpoint_queues_task(client):
+    payload = {
+        "name": "batch test",
+        "scorers": ["exact_match"],
+        "items": [{"id": "1", "input": "q", "actual_output": "Paris", "expected_output": "Paris"}],
+    }
+
+    mock_task = MagicMock()
+    mock_task.id = "fake-task-id-123"
+
+    with patch("app.api.eval_runs.run_eval_batch.delay", return_value=mock_task):
+        resp = await client.post("/eval-runs/batch", json=payload)
+
+    assert resp.status_code == 202
+    body = resp.json()
+    assert body["task_id"] == "fake-task-id-123"
+    assert body["status"] == "queued"
+
+
+@pytest.mark.asyncio
+async def test_batch_endpoint_rejects_oversized_llm_batch(client):
+    items = [
+        {"id": str(i), "input": "q", "actual_output": "a", "expected_output": "a"}
+        for i in range(501)
+    ]
+    resp = await client.post(
+        "/eval-runs/batch",
+        json={"name": "too big", "scorers": ["llm_judge"], "items": items},
+    )
+    assert resp.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_batch_status_pending(client):
+    mock_result = MagicMock()
+    mock_result.state = "PENDING"
+
+    with patch("app.api.eval_runs.AsyncResult", return_value=mock_result):
+        resp = await client.get("/eval-runs/batch/some-task-id/status")
+
+    assert resp.status_code == 200
+    assert resp.json()["state"] == "PENDING"
+
+
+@pytest.mark.asyncio
+async def test_batch_status_success(client):
+    mock_result = MagicMock()
+    mock_result.state = "SUCCESS"
+    mock_result.result = "some-run-id-456"
+
+    with patch("app.api.eval_runs.AsyncResult", return_value=mock_result):
+        resp = await client.get("/eval-runs/batch/some-task-id/status")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["state"] == "SUCCESS"
+    assert body["run_id"] == "some-run-id-456"
+
+
+@pytest.mark.asyncio
+async def test_batch_status_failure(client):
+    mock_result = MagicMock()
+    mock_result.state = "FAILURE"
+    mock_result.info = Exception("scorer blew up")
+
+    with patch("app.api.eval_runs.AsyncResult", return_value=mock_result):
+        resp = await client.get("/eval-runs/batch/some-task-id/status")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["state"] == "FAILURE"
+    assert "scorer blew up" in body["error"]
