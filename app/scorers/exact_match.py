@@ -13,6 +13,7 @@ class ExactMatchScorer(BaseScorer):
         return ScoreResult(
             scorer_name=self.name,
             item_id=item.id,
+            variant=item.variant,
             score=1.0 if is_match else 0.0,
             passed=is_match,
         )

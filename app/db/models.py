@@ -34,6 +34,7 @@ class EvalResult(Base):
     id: Mapped[str] = mapped_column(String, primary_key=True, default=_uuid)
     run_id: Mapped[str] = mapped_column(ForeignKey("eval_runs.id"))
     item_id: Mapped[str] = mapped_column(String)
+    variant: Mapped[str | None] = mapped_column(String, nullable=True)
     scorer_name: Mapped[str] = mapped_column(String)
     score: Mapped[float] = mapped_column(Float)
     passed: Mapped[bool | None] = mapped_column(nullable=True)

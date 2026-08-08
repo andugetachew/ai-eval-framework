@@ -76,9 +76,31 @@ curl -X POST http://localhost:8010/eval-runs \
   }'
 ```
 
+## Scorers
+
+| Scorer | Type | Requires |
+|---|---|---|
+| `exact_match` | Rule-based | `expected_output` |
+| `semantic_similarity` | Embedding-based (sentence-transformers) | `expected_output` |
+| `llm_judge` | LLM-as-judge (Claude) | none (rubric-scored) |
+| `faithfulness` | LLM-as-judge (Claude) | `context` |
+| `context_relevance` | LLM-as-judge (Claude) | `context` |
+
+## Comparison mode
+
+Tag items with a `variant` (e.g. which prompt or model produced them) to
+compare performance across variants on the same dataset:
+
+```bash
+curl http://localhost:8030/eval-runs/{run_id}/compare
+```
+
+Returns per-variant, per-scorer aggregates: average score, pass rate, and
+item count — so you can see at a glance which prompt or model performed
+better, and on which dimension.
+
 ## Roadmap
 
-- RAG-specific scorers (faithfulness, context relevance)
-- Multi-model/prompt comparison mode
-- Batch dataset upload
+- Batch dataset upload (CSV/JSONL)
 - Report export (HTML/markdown summary)
+- Live testing of LLM-as-judge scorers (blocked on Anthropic billing)

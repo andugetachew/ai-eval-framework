@@ -2,7 +2,7 @@ services:
   api:
     build: .
     ports:
-      - "8010:8000"
+      - "8030:8000"
     volumes:
       - .:/app
     env_file:

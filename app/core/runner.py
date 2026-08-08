@@ -18,7 +18,7 @@ class EvalRunner:
     ) -> EvalRun:
         run = EvalRun(name=run_name, status="running")
         session.add(run)
-        await session.flush()  # get run.id
+        await session.flush()
 
         tasks = [
             scorer.score(item) for item in items for scorer in self.scorers
@@ -32,6 +32,7 @@ class EvalRunner:
                 EvalResult(
                     run_id=run.id,
                     item_id=result.item_id,
+                    variant=result.variant,
                     scorer_name=result.scorer_name,
                     score=result.score,
                     passed=result.passed,
@@ -43,8 +44,6 @@ class EvalRunner:
         run.status = "completed"
         await session.commit()
 
-        # Re-fetch with results eagerly loaded in one awaited query —
-        # avoids ever touching the lazy `.results` attribute directly.
         stmt = (
             select(EvalRun)
             .where(EvalRun.id == run.id)

@@ -30,11 +30,11 @@ class SemanticSimilarityScorer(BaseScorer):
             [item.actual_output, item.expected_output], convert_to_tensor=True
         )
         similarity = util.cos_sim(embeddings[0], embeddings[1]).item()
-
         return ScoreResult(
-            scorer_name=self.name,
-            item_id=item.id,
-            score=similarity,
-            passed=similarity >= self.threshold,
-            raw={"threshold": self.threshold},
-        )
+                    scorer_name=self.name,
+                    item_id=item.id,
+                    variant=item.variant,
+                    score=similarity,
+                    passed=similarity >= self.threshold,
+                    raw={"threshold": self.threshold},
+                )
