@@ -5,6 +5,11 @@ from app.core.models import EvalItem
 from app.scorers.exact_match import ExactMatchScorer
 from app.scorers.semantic_similarity import SemanticSimilarityScorer
 from app.scorers.llm_judge import LLMJudgeScorer
+from app.scorers.faithfulness import FaithfulnessScorer
+from app.scorers.context_relevance import ContextRelevanceScorer
+from app.scorers.registry import build_scorer
+from app.core.base_scorer import BaseScorer
+
 
 
 @pytest.mark.asyncio
@@ -87,3 +92,67 @@ async def test_llm_judge_handles_malformed_response():
 
     assert result.score == 0.0
     assert "Failed to parse" in result.reasoning
+
+
+@pytest.mark.asyncio
+async def test_faithfulness_requires_context():
+    scorer = FaithfulnessScorer(api_key="fake-key")
+    item = EvalItem(id="1", input="q", actual_output="Paris", context=[])
+    with pytest.raises(ValueError):
+        await scorer.score(item)
+
+
+@pytest.mark.asyncio
+async def test_faithfulness_parses_valid_response():
+    scorer = FaithfulnessScorer(api_key="fake-key")
+    mock_message = AsyncMock()
+    mock_message.content = [AsyncMock(text='{"score": 0.85, "reasoning": "Grounded in context"}')]
+    mock_create = AsyncMock(return_value=mock_message)
+
+    with patch.object(scorer.client.messages, "create", new=mock_create):
+        item = EvalItem(
+            id="1", input="q", actual_output="Paris is the capital.",
+            context=["Paris is the capital of France."],
+        )
+        result = await scorer.score(item)
+
+    assert result.score == 0.85
+    assert result.passed is True
+
+
+@pytest.mark.asyncio
+async def test_context_relevance_requires_context():
+    scorer = ContextRelevanceScorer(api_key="fake-key")
+    item = EvalItem(id="1", input="q", actual_output="Paris", context=[])
+    with pytest.raises(ValueError):
+        await scorer.score(item)
+
+
+@pytest.mark.asyncio
+async def test_context_relevance_parses_valid_response():
+    scorer = ContextRelevanceScorer(api_key="fake-key")
+    mock_message = AsyncMock()
+    mock_message.content = [AsyncMock(text='{"score": 0.6, "reasoning": "Partially relevant"}')]
+    mock_create = AsyncMock(return_value=mock_message)
+
+    with patch.object(scorer.client.messages, "create", new=mock_create):
+        item = EvalItem(
+            id="1", input="capital of France?", actual_output="Paris",
+            context=["The Eiffel Tower is in Paris.", "France is in Europe."],
+        )
+        result = await scorer.score(item)
+
+    assert result.score == 0.6
+    assert result.passed is False
+
+
+def test_registry_builds_all_known_scorers():
+    for name in ["exact_match", "semantic_similarity", "llm_judge", "faithfulness", "context_relevance"]:
+        scorer = build_scorer(name)
+        assert isinstance(scorer, BaseScorer)
+        assert scorer.name == name
+
+
+def test_registry_rejects_unknown_scorer():
+    with pytest.raises(ValueError):
+        build_scorer("not_a_real_scorer")

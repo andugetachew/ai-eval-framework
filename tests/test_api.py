@@ -133,3 +133,75 @@ async def test_upload_rejects_unsupported_file_type(client):
 
     resp = await client.post("/eval-runs/upload", data=data, files=files)
     assert resp.status_code == 400
+
+@pytest.mark.asyncio
+async def test_create_run_rejects_too_many_items(client):
+    items = [
+        {"id": str(i), "input": "q", "actual_output": "a", "expected_output": "a"}
+        for i in range(201)
+    ]
+    resp = await client.post(
+        "/eval-runs", json={"name": "too many", "scorers": ["exact_match"], "items": items}
+    )
+    assert resp.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_create_run_rejects_too_many_items_for_llm_scorer(client):
+    items = [
+        {"id": str(i), "input": "q", "actual_output": "a", "expected_output": "a"}
+        for i in range(26)
+    ]
+    resp = await client.post(
+        "/eval-runs", json={"name": "too many for llm", "scorers": ["llm_judge"], "items": items}
+    )
+    assert resp.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_pagination_limit_and_offset(client):
+    for i in range(3):
+        await client.post(
+            "/eval-runs",
+            json={
+                "name": f"run {i}",
+                "scorers": ["exact_match"],
+                "items": [{"id": "1", "input": "q", "actual_output": "a", "expected_output": "a"}],
+            },
+        )
+
+    resp = await client.get("/eval-runs?limit=2&offset=0")
+    body = resp.json()
+    assert body["total"] == 3
+    assert len(body["items"]) == 2
+    assert body["limit"] == 2
+
+    resp2 = await client.get("/eval-runs?limit=2&offset=2")
+    assert len(resp2.json()["items"]) == 1
+
+
+@pytest.mark.asyncio
+async def test_upload_missing_required_field_returns_400(client):
+    csv_content = "id,input\n1,capital of France?\n"  # missing actual_output
+    files = {"file": ("bad.csv", csv_content, "text/csv")}
+    data = {"name": "bad csv", "scorers": "exact_match"}
+
+    resp = await client.post("/eval-runs/upload", data=data, files=files)
+    assert resp.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_scorer_failure_surfaces_as_result_not_dropped(client):
+    # semantic_similarity requires expected_output; omitting it should
+    # surface as a failed ScoreResult rather than vanish silently
+    payload = {
+        "name": "failing scorer test",
+        "scorers": ["semantic_similarity"],
+        "items": [{"id": "1", "input": "q", "actual_output": "Paris"}],
+    }
+    resp = await client.post("/eval-runs", json=payload)
+    assert resp.status_code == 200
+    results = resp.json()["results"]
+    assert len(results) == 1
+    assert results[0]["raw"] if "raw" in results[0] else True  # raw not in schema, check reasoning instead
+    assert "error" in results[0]["reasoning"].lower() or "requires" in results[0]["reasoning"].lower()
