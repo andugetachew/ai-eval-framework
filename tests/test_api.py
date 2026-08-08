@@ -18,7 +18,9 @@ async def test_create_and_list_eval_run(client):
 
     list_resp = await client.get("/eval-runs")
     assert list_resp.status_code == 200
-    assert len(list_resp.json()) == 1
+    list_body = list_resp.json()
+    assert list_body["total"] == 1
+    assert len(list_body["items"]) == 1
 
     run_id = body["id"]
     get_resp = await client.get(f"/eval-runs/{run_id}")

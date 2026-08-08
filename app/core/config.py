@@ -4,6 +4,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     database_url: str
     anthropic_api_key: str = ""
+    api_key: str = ""  # set this to require auth; empty = auth disabled
 
     class Config:
         env_file = ".env"

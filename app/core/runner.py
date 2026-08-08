@@ -5,8 +5,23 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from app.core.base_scorer import BaseScorer
-from app.core.models import EvalItem
+from app.core.models import EvalItem, ScoreResult
 from app.db.models import EvalRun, EvalResult
+
+
+async def _safe_score(scorer: BaseScorer, item: EvalItem) -> ScoreResult:
+    try:
+        return await scorer.score(item)
+    except Exception as e:
+        return ScoreResult(
+            scorer_name=scorer.name,
+            item_id=item.id,
+            variant=item.variant,
+            score=0.0,
+            passed=None,
+            reasoning=f"Scorer error: {e}",
+            raw={"error": True},
+        )
 
 
 class EvalRunner:
@@ -21,13 +36,11 @@ class EvalRunner:
         await session.flush()
 
         tasks = [
-            scorer.score(item) for item in items for scorer in self.scorers
+            _safe_score(scorer, item) for item in items for scorer in self.scorers
         ]
-        results = await asyncio.gather(*tasks, return_exceptions=True)
+        results = await asyncio.gather(*tasks)
 
         for result in results:
-            if isinstance(result, Exception):
-                continue
             session.add(
                 EvalResult(
                     run_id=run.id,
