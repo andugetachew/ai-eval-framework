@@ -20,7 +20,7 @@ services:
       - .:/app
     env_file:
       - .env
-    command: celery -A app.core.celery_app worker --loglevel=info
+    command: celery -A app.core.celery_app worker --loglevel=info -Q ai_eval_framework_queue
     depends_on:
       db:
         condition: service_healthy

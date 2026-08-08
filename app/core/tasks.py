@@ -7,8 +7,9 @@ from app.scorers.registry import build_scorer
 from app.db.session import async_session
 
 
-@celery_app.task(name="run_eval_batch")
+@celery_app.task(name="run_eval_batch", queue="ai_eval_framework_queue")
 def run_eval_batch(run_name: str, scorer_names: list[str], items_data: list[dict]) -> str:
+    ...
     """
     Celery entrypoint. Celery tasks are sync functions, but our scorers and
     EvalRunner are async — so we spin up a fresh event loop here and run

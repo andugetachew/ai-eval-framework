@@ -14,16 +14,13 @@ services:
       - key: API_KEY
         sync: false
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: ai-eval-framework-redis
-          property: connectionString
+        sync: false
 
   - type: worker
     name: ai-eval-framework-worker
     runtime: docker
     dockerfilePath: ./Dockerfile
-    dockerCommand: celery -A app.core.celery_app worker --loglevel=info
+    dockerCommand: celery -A app.core.celery_app worker --loglevel=info -Q ai_eval_framework_queue
     plan: free
     envVars:
       - key: DATABASE_URL
@@ -33,15 +30,7 @@ services:
       - key: ANTHROPIC_API_KEY
         sync: false
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: ai-eval-framework-redis
-          property: connectionString
-
-  - type: redis
-    name: ai-eval-framework-redis
-    plan: free
-    ipAllowList: []
+        sync: false
 
 databases:
   - name: ai-eval-framework-db
