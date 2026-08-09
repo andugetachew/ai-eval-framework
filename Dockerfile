@@ -2,7 +2,6 @@ FROM python:3.12-slim-bookworm
 
 WORKDIR /app
 
-# System deps needed for sentence-transformers / torch and asyncpg build
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
@@ -10,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir --default-timeout=300 --retries=5 -r requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip pip install --default-timeout=300 --retries=5 -r requirements.txt
 
 COPY . .
 

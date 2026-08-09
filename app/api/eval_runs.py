@@ -7,6 +7,10 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
+from itertools import combinations
+
+from app.core.stats import bootstrap_confidence_interval, welch_t_test
+from app.api.schemas import PairwiseComparison
 
 from app.api.auth import require_api_key
 from app.core.models import EvalItem
@@ -101,6 +105,8 @@ async def get_eval_run(run_id: str, session: AsyncSession = Depends(get_session)
     return run
 
 
+
+
 @router.get("/{run_id}/compare", response_model=CompareOut)
 async def compare_variants(run_id: str, session: AsyncSession = Depends(get_session)):
     stmt = (
@@ -120,8 +126,10 @@ async def compare_variants(run_id: str, session: AsyncSession = Depends(get_sess
 
     summary = []
     for (variant, scorer_name), scores in buckets.items():
-        avg_score = sum(s.score for s in scores) / len(scores)
+        score_values = [s.score for s in scores]
+        avg_score = sum(score_values) / len(score_values)
         pass_count = sum(1 for s in scores if s.passed)
+        ci_low, ci_high = bootstrap_confidence_interval(score_values)
         summary.append(
             VariantSummary(
                 variant=variant,
@@ -129,11 +137,36 @@ async def compare_variants(run_id: str, session: AsyncSession = Depends(get_sess
                 avg_score=round(avg_score, 4),
                 pass_rate=round(pass_count / len(scores), 4),
                 count=len(scores),
+                ci_low=round(ci_low, 4),
+                ci_high=round(ci_high, 4),
             )
         )
 
-    return CompareOut(run_id=run.id, run_name=run.name, summary=summary)
+    # Pairwise significance testing: compare every pair of variants that
+    # share the same scorer (comparing across different scorers wouldn't
+    # be meaningful — they're on different scales/semantics)
+    scorer_names = {scorer for (_, scorer) in buckets.keys()}
+    pairwise = []
+    for scorer_name in scorer_names:
+        variants_for_scorer = [
+            variant for (variant, s) in buckets.keys() if s == scorer_name
+        ]
+        for variant_a, variant_b in combinations(sorted(variants_for_scorer), 2):
+            scores_a = [s.score for s in buckets[(variant_a, scorer_name)]]
+            scores_b = [s.score for s in buckets[(variant_b, scorer_name)]]
+            test_result = welch_t_test(scores_a, scores_b)
+            pairwise.append(
+                PairwiseComparison(
+                    scorer_name=scorer_name,
+                    variant_a=variant_a,
+                    variant_b=variant_b,
+                    p_value=test_result["p_value"],
+                    significant=test_result["significant"],
+                    note=test_result["note"],
+                )
+            )
 
+    return CompareOut(run_id=run.id, run_name=run.name, summary=summary, pairwise=pairwise)
 
 @router.post("/upload", response_model=EvalRunOut)
 async def create_eval_run_from_file(

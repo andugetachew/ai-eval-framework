@@ -76,3 +76,29 @@ class BatchTaskStatus(BaseModel):
     state: str  # PENDING, STARTED, SUCCESS, FAILURE
     run_id: str | None = None
     error: str | None = None
+
+
+class VariantSummary(BaseModel):
+    variant: str
+    scorer_name: str
+    avg_score: float
+    pass_rate: float
+    count: int
+    ci_low: float
+    ci_high: float
+
+
+class PairwiseComparison(BaseModel):
+    scorer_name: str
+    variant_a: str
+    variant_b: str
+    p_value: float | None
+    significant: bool | None
+    note: str
+
+
+class CompareOut(BaseModel):
+    run_id: str
+    run_name: str
+    summary: list[VariantSummary]
+    pairwise: list[PairwiseComparison]
