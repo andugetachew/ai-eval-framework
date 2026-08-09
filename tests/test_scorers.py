@@ -9,6 +9,7 @@ from app.scorers.faithfulness import FaithfulnessScorer
 from app.scorers.context_relevance import ContextRelevanceScorer
 from app.scorers.registry import build_scorer
 from app.core.base_scorer import BaseScorer
+from app.scorers.trained_classifier import TrainedClassifierScorer
 
 
 
@@ -218,3 +219,38 @@ async def test_rouge_partial_score_for_paraphrase():
     )
     result = await scorer.score(item)
     assert 0.3 < result.score < 0.9
+
+
+
+@pytest.mark.asyncio
+async def test_trained_classifier_requires_expected_output():
+    scorer = TrainedClassifierScorer()
+    item = EvalItem(id="1", input="q", actual_output="Paris", expected_output=None)
+    with pytest.raises(ValueError):
+        await scorer.score(item)
+
+
+@pytest.mark.asyncio
+async def test_trained_classifier_predicts_good_pair():
+    scorer = TrainedClassifierScorer()
+    item = EvalItem(
+        id="1", input="q",
+        actual_output="Paris is the capital of France.",
+        expected_output="The capital of France is Paris.",
+    )
+    result = await scorer.score(item)
+    assert result.passed is True
+    assert result.score > 0.5
+
+
+@pytest.mark.asyncio
+async def test_trained_classifier_predicts_bad_pair():
+    scorer = TrainedClassifierScorer()
+    item = EvalItem(
+        id="1", input="q",
+        actual_output="Bananas are yellow.",
+        expected_output="The capital of France is Paris.",
+    )
+    result = await scorer.score(item)
+    assert result.passed is False
+    assert result.score < 0.5
