@@ -157,7 +157,7 @@ Compose stack for the async batch path.
 docker-compose exec api pytest --cov=app --cov-report=term-missing
 ```
 
-43/43 passing. One-off scripts (`app/ml/generate_training_data.py`,
+53/53 passing. One-off scripts (`app/ml/generate_training_data.py`,
 `app/ml/train_classifier.py`) and Alembic migrations are excluded from
 coverage via `.coveragerc`, since they're run manually rather than
 exercised by the application.
