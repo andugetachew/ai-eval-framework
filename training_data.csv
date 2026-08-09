@@ -1,0 +1,401 @@
+actual_output,expected_output,word_overlap,length_ratio,label
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris the is capital of France.,Paris is the capital of France.,1.0,1.0,1
+France. is the capital of Paris,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+capital is the Paris of France.,Paris is the capital of France.,1.0,1.0,1
+Paris France. the capital of is,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris of the capital is France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+is Paris the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+the is Paris capital of France.,Paris is the capital of France.,1.0,1.0,1
+the is Paris capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+Paris is the capital of France.,Paris is the capital of France.,1.0,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The of capital France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The of capital France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+The capital of France is Paris.,Paris is the capital of France.,0.5,1.0,1
+Water Celsius. at 100 degrees boils,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at Celsius. degrees 100,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 Celsius. degrees,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+at boils Water 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+at boils Water 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils degrees 100 at Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at Celsius. degrees 100,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water Celsius. at 100 degrees boils,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+Water boils at 100 degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+100 boils at Water degrees Celsius.,Water boils at 100 degrees Celsius at sea level.,0.5555555555555556,0.6666666666666666,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria the the powerhouse of is cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+of mitochondria is the powerhouse The the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+of mitochondria is the powerhouse The the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria the is powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the cell. of the powerhouse,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the the of powerhouse cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+The mitochondria is the powerhouse of the cell.,Mitochondria produce energy for the cell.,0.3333333333333333,0.75,1
+wrote Shakespeare Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Juliet. and Romeo,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+wrote Shakespeare Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+and wrote Romeo Shakespeare Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare and Romeo wrote Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo Juliet. and,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+Shakespeare wrote Romeo and Juliet.,Romeo and Juliet was written by Shakespeare.,0.2,0.7142857142857143,1
+The is Wall of China Great over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall miles China is over 13000 of long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+of Great Wall The China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+is Great Wall of China The over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall China of is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great 13000 of China is over Wall miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is 13000 over miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The over Wall of China is Great 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+Great The Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall miles China is over 13000 of long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+The Great Wall of China is over 13000 miles long.,The Great Wall of China stretches over 13000 miles.,0.5833333333333334,0.9,1
+converts Photosynthesis sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+energy. converts sunlight into Photosynthesis,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight energy. into,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+into converts sunlight Photosynthesis energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+into converts sunlight Photosynthesis energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts into sunlight energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis sunlight converts into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+Photosynthesis converts sunlight into energy.,Plants use photosynthesis to convert light into energy.,0.3,0.625,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific on is the largest ocean Ocean Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Earth. Ocean is the largest ocean on Pacific,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The is Ocean Pacific the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The ocean Ocean is the largest Pacific on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean largest the is ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific the is Ocean largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Pacific Ocean is the largest ocean on Earth.,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+The Earth. Ocean is the largest ocean on Pacific,The largest ocean on Earth is the Pacific.,0.5555555555555556,0.8888888888888888,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+developed Einstein Albert the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the relativity. of theory,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the relativity. of theory,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+of Einstein developed the theory Albert relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+relativity. Einstein developed the theory of Albert,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein theory the developed of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert developed Einstein the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+Albert Einstein developed the theory of relativity.,The theory of relativity was developed by Einstein.,0.36363636363636365,0.875,1
+sides. triangle has three A,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A has triangle three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has sides. three,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+triangle A has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+triangle A has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+triangle A has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+A triangle has three sides.,Triangles have three sides.,0.2857142857142857,0.8,1
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+sky The is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The is sky green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+sky The is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The green. is sky,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+is sky The green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The is sky green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky is green.,Paris is the capital of France.,0.25,0.6666666666666666,0
+The sky green. is,Paris is the capital of France.,0.25,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas a are type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a of type vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas of a type are vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a vehicle. of type,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas of a type are vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are vehicle. type of a,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are of type a vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+Bananas are a type of vehicle.,Water boils at 100 degrees Celsius at sea level.,0.0,0.6666666666666666,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The cheese. is made of moon,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The is moon made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The made is moon of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made cheese. of,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+The moon is made of cheese.,Mitochondria produce energy for the cell.,0.09090909090909091,1.0,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs ears. fly using their can,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs using fly can their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+ears. can fly using their Dogs,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using ears. their,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+Dogs can fly using their ears.,Romeo and Juliet was written by Shakespeare.,0.0,0.8571428571428571,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The invented was internet in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The was internet invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+The internet was invented in 1400.,The Great Wall of China stretches over 13000 miles.,0.07142857142857142,0.6666666666666666,0
+in live Fish trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish in live trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish trees. in live,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish trees. in live,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish trees. in live,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish in live trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+Fish live in trees.,Plants use photosynthesis to convert light into energy.,0.0,0.5,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The orbits sun the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun the orbits Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The the orbits sun Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun the orbits Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+The sun orbits the Earth.,The largest ocean on Earth is the Pacific.,0.1,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus equals two five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two two plus equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+plus Two two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+equals plus two Two five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus five. equals two,The theory of relativity was developed by Einstein.,0.0,0.625,0
+five. plus two equals Two,The theory of relativity was developed by Einstein.,0.0,0.625,0
+Two plus two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+two plus Two equals five.,The theory of relativity was developed by Einstein.,0.0,0.625,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A sides. has seven square,Triangles have three sides.,0.125,0.8,0
+has square A seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has sides. seven,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+has square A seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square seven has sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+A square has seven sides.,Triangles have three sides.,0.125,0.8,0
+London is the of capital Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+the is London capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the of capital Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London the is capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is of capital the Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+of is the capital London Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the Japan. of capital,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0
+London is the capital of Japan.,Paris is the capital of France.,0.5,1.0,0

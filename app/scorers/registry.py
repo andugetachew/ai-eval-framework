@@ -6,6 +6,7 @@ from app.scorers.llm_judge import LLMJudgeScorer
 from app.scorers.faithfulness import FaithfulnessScorer
 from app.scorers.context_relevance import ContextRelevanceScorer
 from app.scorers.bleu_rouge import BLEUScorer, ROUGEScorer
+from app.scorers.trained_classifier import TrainedClassifierScorer
 
 
 def build_scorer(name: str) -> BaseScorer:
@@ -23,4 +24,6 @@ def build_scorer(name: str) -> BaseScorer:
         return BLEUScorer()
     if name == "rouge":
         return ROUGEScorer()
+    if name == "trained_classifier":
+        return TrainedClassifierScorer()
     raise ValueError(f"Unknown scorer: {name}")

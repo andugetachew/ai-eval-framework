@@ -1,0 +1,5 @@
+[run]
+omit =
+    app/ml/generate_training_data.py
+    app/ml/train_classifier.py
+    app/db/migrations/*
