@@ -156,3 +156,65 @@ def test_registry_builds_all_known_scorers():
 def test_registry_rejects_unknown_scorer():
     with pytest.raises(ValueError):
         build_scorer("not_a_real_scorer")
+
+from app.scorers.bleu_rouge import BLEUScorer, ROUGEScorer
+
+
+@pytest.mark.asyncio
+async def test_bleu_requires_expected_output():
+    scorer = BLEUScorer()
+    item = EvalItem(id="1", input="q", actual_output="Paris", expected_output=None)
+    with pytest.raises(ValueError):
+        await scorer.score(item)
+
+
+@pytest.mark.asyncio
+async def test_bleu_high_score_for_exact_match():
+    scorer = BLEUScorer()
+    item = EvalItem(
+        id="1", input="q", actual_output="the cat sat on the mat",
+        expected_output="the cat sat on the mat",
+    )
+    result = await scorer.score(item)
+    assert result.score > 0.9
+
+
+@pytest.mark.asyncio
+async def test_bleu_low_score_for_unrelated_text():
+    scorer = BLEUScorer()
+    item = EvalItem(
+        id="1", input="q", actual_output="completely different words here",
+        expected_output="the cat sat on the mat",
+    )
+    result = await scorer.score(item)
+    assert result.score < 0.3
+
+
+@pytest.mark.asyncio
+async def test_rouge_requires_expected_output():
+    scorer = ROUGEScorer()
+    item = EvalItem(id="1", input="q", actual_output="Paris", expected_output=None)
+    with pytest.raises(ValueError):
+        await scorer.score(item)
+
+
+@pytest.mark.asyncio
+async def test_rouge_high_score_for_exact_match():
+    scorer = ROUGEScorer()
+    item = EvalItem(
+        id="1", input="q", actual_output="the cat sat on the mat",
+        expected_output="the cat sat on the mat",
+    )
+    result = await scorer.score(item)
+    assert result.score == 1.0
+
+
+@pytest.mark.asyncio
+async def test_rouge_partial_score_for_paraphrase():
+    scorer = ROUGEScorer()
+    item = EvalItem(
+        id="1", input="q", actual_output="The cat sat on the mat",
+        expected_output="A cat was sitting on the mat",
+    )
+    result = await scorer.score(item)
+    assert 0.3 < result.score < 0.9

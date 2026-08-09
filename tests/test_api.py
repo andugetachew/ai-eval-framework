@@ -282,3 +282,4 @@ async def test_batch_status_failure(client):
     body = resp.json()
     assert body["state"] == "FAILURE"
     assert "scorer blew up" in body["error"]
+

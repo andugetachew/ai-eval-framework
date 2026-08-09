@@ -5,6 +5,7 @@ from app.scorers.semantic_similarity import SemanticSimilarityScorer
 from app.scorers.llm_judge import LLMJudgeScorer
 from app.scorers.faithfulness import FaithfulnessScorer
 from app.scorers.context_relevance import ContextRelevanceScorer
+from app.scorers.bleu_rouge import BLEUScorer, ROUGEScorer
 
 
 def build_scorer(name: str) -> BaseScorer:
@@ -18,4 +19,8 @@ def build_scorer(name: str) -> BaseScorer:
         return FaithfulnessScorer(api_key=settings.anthropic_api_key)
     if name == "context_relevance":
         return ContextRelevanceScorer(api_key=settings.anthropic_api_key)
+    if name == "bleu":
+        return BLEUScorer()
+    if name == "rouge":
+        return ROUGEScorer()
     raise ValueError(f"Unknown scorer: {name}")
